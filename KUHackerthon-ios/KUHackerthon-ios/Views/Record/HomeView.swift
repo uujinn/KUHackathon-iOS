@@ -10,7 +10,7 @@ import AVFoundation
 import AVKit
 
 struct HomeView: View {
-  var hashtags = ["독창적인", "감미로운", ""]
+  var hashtags = ["독창적인", "감미로운", "여유로운", "신이나는", "흥미로운", "엉덩이들썩", "클래식", "잔잔한"]
   
   @StateObject var sourceVM = SourcesViewModel()
   @StateObject var voiceVM = VoiceViewModel()
@@ -18,6 +18,12 @@ struct HomeView: View {
   
   @State var song1 = false
   @StateObject private var soundManager = SoundManager()
+  
+  @State var width = (Screen.maxWidth - 50)/2
+  @State var height = (Screen.maxWidth - 50)/2
+  
+  @GestureState var press = false
+  @State var completed = false
   
   var body: some View {
     VStack(spacing: 0){
@@ -33,7 +39,7 @@ struct HomeView: View {
             .resizable()
             .frame(width: 19, height: 19, alignment: .center)
           Spacer()
-            .frame(width: 35)
+            .frame(width: 30)
           Image(systemName: "bell")
             .resizable()
             .frame(width: 19, height: 19, alignment: .center)
@@ -44,7 +50,7 @@ struct HomeView: View {
                 .foregroundColor(Color.pink)
             }
           Spacer()
-            .frame(width: 35)
+            .frame(width: 30)
           Image(systemName: "gearshape")
             .resizable()
             .frame(width: 19, height: 19, alignment: .center)
@@ -55,7 +61,7 @@ struct HomeView: View {
       ScrollView{
         VStack{
           HStack{
-            Text("🔥Weekly Hot")
+            Text("🔥 Weekly Hot")
               .bold()
               .foregroundColor(Color(hex:"eaeaea"))
               .font(.system(size: 30))
@@ -82,6 +88,8 @@ struct HomeView: View {
                       HStack{
                         Image(systemName: "heart")
                         Text("42,563")
+                        Spacer()
+                          .frame(width: 15)
                         Image(systemName: "shuffle")
                         Text("12,429")
                       }
@@ -92,7 +100,7 @@ struct HomeView: View {
               Spacer()
                 .frame(width: 60)
               VStack{
-                ForEach(1..<5, id: \.self){ num in
+                ForEach(5..<9, id: \.self){ num in
                   HStack{
                     Text("\(num)")
                     Image("create 2")
@@ -125,7 +133,7 @@ struct HomeView: View {
           HStack(alignment: .bottom){
             Spacer()
               .frame(width: 18)
-            Text("#️⃣Hashtag")
+            Text("#️⃣ Hashtag")
               .bold()
               .font(.system(size: 30))
             Spacer()
@@ -134,19 +142,114 @@ struct HomeView: View {
             Spacer()
               .frame(width: 18)
           }
-          ScrollView(.horizontal){
-            ForEach(0..<8, id: \.self){ num in
-              
-            }
+          ScrollView(.horizontal, showsIndicators: false){
             HStack{
-              Text("# 독창적인")
-                .padding()
+              Spacer()
+                .frame(width: 18)
+              ForEach(0..<8, id: \.self){ num in
+                Text("# \(hashtags[num])")
+                  .padding()
+                  .background(.regularMaterial)
+                  .cornerRadius(15)
+              }
+              Spacer()
+                .frame(width: 18)
             }
-            .background(.regularMaterial)
-            .cornerRadius(4)
+          }// Hashtag
+        }// VStack Hashtag
+        Spacer()
+          .frame(height: 50)
+        VStack{
+          HStack(alignment: .bottom){
+            Spacer()
+              .frame(width: 18)
+            Text("🔎 Discover")
+              .bold()
+              .font(.system(size: 30))
+            Spacer()
+            Text("더보기")
+              .font(.system(size: 15))
+            Spacer()
+              .frame(width: 18)
           }
-        }
-      }//VStack
+          ScrollView(.vertical, showsIndicators: false){
+            ForEach(0..<8, id: \.self){ num in
+              HStack(spacing: 5){
+                Rectangle()
+                  .frame(width: (Screen.maxWidth - 50)/2, height: (Screen.maxWidth - 50)/2, alignment: .center)
+                  .cornerRadius(15)
+                  .overlay{
+                    Image("a")
+                      .resizable()
+                      .cornerRadius(15)
+                    HStack(spacing: 5){
+                      Text("# 신나는")
+                        .font(.system(size: 15))
+                        .padding(3)
+                        .frame(width: 70, height: 25, alignment: .center)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(8)
+                      Text("# 힙합")
+                        .font(.system(size: 15))
+                        .padding(3)
+                        .frame(width: 70, height: 25, alignment: .center)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(8)
+                    }.offset(x: -5, y: -60)
+                    VStack(alignment: .leading, spacing: 5){
+                      HStack{
+                        Image(systemName: "heart")
+                        Text("42,563")
+                      }
+                      HStack{
+                        Image(systemName: "shuffle")
+                        Text("12,429")
+                      }
+                    }.offset(x: -35, y: 50)
+                  }
+                  .modifier(TapAndLongPressModifier(tapAction: { print("tap") },
+                                                    longPressAction: { print("long") }))
+                Rectangle()
+                  .frame(width: (Screen.maxWidth - 50)/2, height: (Screen.maxWidth - 50)/2, alignment: .center)
+                  .cornerRadius(15)
+                  .overlay{
+                    Image("b")
+                      .resizable()
+                      .cornerRadius(15)
+                    HStack(spacing: 5){
+                      Text("# 발라드")
+                        .font(.system(size: 15))
+                        .padding(3)
+                        .frame(width: 65, height: 25, alignment: .center)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(8)
+                      Text("# 잔잔한")
+                        .font(.system(size: 15))
+                        .padding(3)
+                        .frame(width: 65, height: 25, alignment: .center)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(8)
+                    }.offset(x: -10, y: -60)
+                    VStack(alignment: .leading, spacing: 5){
+                      HStack{
+                        Image(systemName: "heart")
+                        Text("42,563")
+                      }
+                      HStack{
+                        Image(systemName: "shuffle")
+                        Text("12,429")
+                      }
+                    }.offset(x: -35, y: 50)
+                  }
+                  .modifier(TapAndLongPressModifier(tapAction: { print("tap") },
+                                                    longPressAction: { print("long") }))
+              }
+            }
+          }// Hashtag
+        }// VStack
+        Spacer()
+          .frame(height: 150)
+      }//ScrollView
       .background(Color(hex: "262626"))
     }
   }
@@ -165,5 +268,29 @@ class SoundManager : ObservableObject {
     if let url = URL(string: sound) {
       self.audioPlayer = AVPlayer(url: url)
     }
+  }
+}
+
+struct TapAndLongPressModifier: ViewModifier {
+  @State private var isLongPressing = false
+  let tapAction: (()->())
+  let longPressAction: (()->())
+  func body(content: Content) -> some View {
+    content
+      .scaleEffect(isLongPressing ? 1.5 : 1.0)
+      .onLongPressGesture(minimumDuration: 10.0, pressing: { (isPressing) in
+        withAnimation {
+          isLongPressing = isPressing
+          print(isPressing)
+        }
+      }, perform: {
+        longPressAction()
+      })
+      .simultaneousGesture(
+        TapGesture()
+          .onEnded { _ in
+            tapAction()
+          }
+      )
   }
 }

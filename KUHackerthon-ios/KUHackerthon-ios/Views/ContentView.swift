@@ -42,6 +42,13 @@ struct ContentView: View {
           ZStack{
             Color(hex: "262626")
             HomeView() // 홈뷰
+            if showPopUp{
+              Color.black.opacity(0.4)
+                .onTapGesture {
+                  showPopUp = false
+                }
+            }
+            
             if tabbarManager.showRecord{
               Color.black.opacity(0.4)
               RecordView(isShowing: $tabbarManager.showRecord)
@@ -56,6 +63,20 @@ struct ContentView: View {
           ZStack{
             AccountView()
             Spacer()
+            if showPopUp{
+              Color.black.opacity(0.4)
+                .onTapGesture {
+                  showPopUp = false
+                }
+            }
+            if tabbarManager.showRecord{
+              Color.black.opacity(0.4)
+              RecordView(isShowing: $tabbarManager.showRecord)
+                .frame(width: 331, height: 331)
+                .transition(.move(edge: .top))
+                .animation(.easeOut(duration: 0.1))
+                
+            }
           }
         }
 //        Spacer()
@@ -126,12 +147,11 @@ struct PlusMenu: View {
       ZStack {
         Circle()
           .foregroundColor(Color.black)
-          .frame(width: widthAndHeight, height: widthAndHeight)
-        Image(systemName: "record.circle")
+          .frame(width: widthAndHeight + 10, height: widthAndHeight + 10)
+        Image("record")
           .resizable()
-          .aspectRatio(contentMode: .fit)
-          .padding(15)
-          .frame(width: widthAndHeight, height: widthAndHeight)
+          .aspectRatio(contentMode: .fill)
+          .frame(width: widthAndHeight + 10, height: widthAndHeight + 10)
           .foregroundColor(.white)
       }
       .onTapGesture {
@@ -139,30 +159,29 @@ struct PlusMenu: View {
         tabbarManager.showRecord = true
         tabbarManager.showTabBar = false
       }
-      .offset(x: 15, y: 20)
+      .offset(x: 15, y: 10)
       ZStack {
         Circle()
           .foregroundColor(Color.black)
-          .frame(width: widthAndHeight, height: widthAndHeight)
-        Image(systemName: "pianokeys")
+          .frame(width: widthAndHeight + 10, height: widthAndHeight + 10)
+        Image("vir")
           .resizable()
-          .aspectRatio(contentMode: .fit)
-          .padding(15)
-          .frame(width: widthAndHeight, height: widthAndHeight)
+          .aspectRatio(contentMode: .fill)
+          .frame(width: widthAndHeight + 10, height: widthAndHeight + 10)
           .foregroundColor(.white)
       }
+      .offset(x: 0, y: -40)
       ZStack {
         Circle()
           .foregroundColor(Color.black)
-          .frame(width: widthAndHeight, height: widthAndHeight)
-        Image(systemName: "folder")
+          .frame(width: widthAndHeight + 10, height: widthAndHeight + 10)
+        Image("new")
           .resizable()
-          .aspectRatio(contentMode: .fit)
-          .padding(15)
-          .frame(width: widthAndHeight, height: widthAndHeight)
+          .aspectRatio(contentMode: .fill)
+          .frame(width: widthAndHeight + 10, height: widthAndHeight + 10)
           .foregroundColor(.white)
       }
-      .offset(x: -15, y: 20)
+      .offset(x: -15, y: 10)
     }
     .transition(.scale)
   }
