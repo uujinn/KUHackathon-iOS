@@ -119,10 +119,14 @@ struct RecordView: View {
                       print("startPlaying")
                       print(vm.audioRecorder.url)
                     }else{
-                      vm.stopPlaying(url: vm.urlToShare!)
-                      self.isPause = true
-                      self.mode = ""
-                      print("stopPlaying")
+                      if pressedOK == false{
+                        
+                      }else{
+                        vm.stopPlaying(url: vm.urlToShare!)
+                        self.isPause = true
+                        self.mode = ""
+                        print("stopPlaying")
+                      }
                     }
                     
                   }
@@ -226,7 +230,7 @@ struct TextFieldAlert: ViewModifier {
             .foregroundColor(.black)
           TextField(placeholder, text: $text).textFieldStyle(.roundedBorder).padding()
           Divider()
-          HStack{
+          HStack(spacing: 0){
             Spacer()
             Button(role: .cancel) {
               withAnimation {
@@ -237,7 +241,6 @@ struct TextFieldAlert: ViewModifier {
                 Spacer()
                   .frame(height: 5)
                 Text("Cancel")
-                  .padding()
                 Spacer()
                   .frame(height: 25)
               }
@@ -245,6 +248,7 @@ struct TextFieldAlert: ViewModifier {
             }
             Spacer()
             Divider()
+              .frame(height: 58)
             Spacer()
             Button() {
               action(text)
@@ -255,7 +259,7 @@ struct TextFieldAlert: ViewModifier {
               VStack{
                 Spacer()
                   .frame(height: 5)
-                Text("Action")
+                Text("Action ")
                   .bold()
                 Spacer()
                   .frame(height: 25)
