@@ -34,24 +34,27 @@ struct ContentView: View {
   
   var body: some View {
     GeometryReader { geometry in
-      VStack(alignment: .center) {
+      VStack(alignment: .center, spacing: 0) {
         Spacer()
         switch viewRouter.currentPage {
         case .home:
           ZStack{
+            Color.blue.opacity(0.2)
             Text("Home") // 홈뷰
             if tabbarManager.showRecord{
               RecordView()
+                .frame(width: 331, height: 331)
+                .transition(.move(edge: .top))
+                .animation(.easeIn)
             }
           }
-        
+          
         case .user:
           Text("User")
         }
-        Spacer()
-        Spacer().frame(width: Screen.maxWidth, height: 1)
+//        Spacer()
         if tabbarManager.showTabBar{
-          ZStack {
+          ZStack{
             if showPopUp {
               PlusMenu(viewRouter: viewRouter, widthAndHeight: geometry.size.width/7)
                 .offset(y: -geometry.size.height/6)
@@ -86,6 +89,7 @@ struct ContentView: View {
             .background(Color.blue.shadow(radius: 2))
           }//ZStack
         }else{
+          
         }
       }
       .edgesIgnoringSafeArea(.bottom)

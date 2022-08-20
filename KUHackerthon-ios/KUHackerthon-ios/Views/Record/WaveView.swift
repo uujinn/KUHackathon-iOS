@@ -18,8 +18,10 @@ enum ProgressKeyFrames: CGFloat {
 struct WaveView: UIViewRepresentable {
   
   typealias UIViewType = UIView
-  var filename: String
   let animationView = AnimationView()
+  var filename: String
+  @Binding var mode: String
+  
   
   func makeUIView(context: Context) -> UIView {
     let view = UIView(frame: .zero)
@@ -49,7 +51,14 @@ struct WaveView: UIViewRepresentable {
   }
   
   func updateUIView(_ uiView: UIView, context: Context) {
-
+    if mode == "loop"{
+      animationView.pause()
+      animationView.stop()
+    }else{
+      animationView.play()
+      animationView.loopMode = .loop
+    }
+    
   }
   
 

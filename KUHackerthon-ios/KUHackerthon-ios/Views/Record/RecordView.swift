@@ -25,6 +25,9 @@ struct RecordView: View {
   @State var showTimer = false
   @State var control: Bool = false
   @State var timerText = ""
+  @State var pressedOK = false
+  @State var isPause = true
+  @State var mode = ""
   
   var body: some View {
     Circle()
@@ -46,32 +49,86 @@ struct RecordView: View {
             Spacer()
           }
           else{
-            Text("녹음 중 입니다")
-              .font(.system(size: 35))
-              .foregroundColor(Color(hex: "ceeff2"))
-            Text("00:01")
-              .font(.system(size: 20))
-              .foregroundColor(Color(hex: "ceeff2"))
+            if pressedOK == false{
+              Text("녹음 중 입니다")
+                .font(.system(size: 35))
+                .foregroundColor(Color(hex: "43cad9"))
+                .bold()
+              Text("00:01")
+                .font(.system(size: 20))
+                .foregroundColor(Color(hex: "ceeff2"))
+            }else{
+              Text("00:01")
+                .font(.system(size: 25))
+                .bold()
+                .foregroundColor(Color(hex: "ceeff2"))
+              Image(isPause ? "5" : "4")
+                .resizable()
+                .frame(width: 42, height: 49, alignment: .center)
+                .onTapGesture {
+                  // pause로 바뀜
+                  print("isPause: \(isPause)")
+                  if isPause {
+                    self.isPause = false
+                  }else{
+                    self.isPause = true
+                  }
+                  
+                }
+            }
             // Lottie View
-            WaveView(filename: "SoundWave")
-              .offset(y: -200)
+            ZStack{
+              Image("13")
+                .offset(y: -200)
+                .opacity(isPause ? 0 : 1)
+              WaveView(filename: "SoundWave", mode: $mode)
+                .opacity(isPause ? 1 : 0)
+                .offset(y: -185)
+                .onTapGesture {
+                  // pause로 바뀜
+                  print("isPause: \(isPause)")
+                  if isPause {
+                    self.isPause = false
+                    self.mode = "loop"
+                  }else{
+                    self.isPause = true
+                    self.mode = ""
+                  }
+                  
+                }
+            }
             HStack(spacing: 70){
               Button {
                 print("저장")
                 // 저장을 누르면 > 생김
                 // 시간은 위로 올라감
+                withAnimation {
+                  pressedOK = true
+                  isPause = true
+                }
               } label: {
                 VStack{
                   Image("okbutton")
                   Text("저장")
+                    .font(.system(size: 25))
+                    .bold()
+                    .foregroundColor(Color(hex: "43cad9"))
                 }
               }
-              Button {
-                print("취소")
-              } label: {
-                VStack{
-                  Image("cancelbutton")
-                  Text("취소")
+              if pressedOK{
+                
+              }else{
+                Button {
+                  print("취소")
+                  // 위로 다시 올라감
+                } label: {
+                  VStack{
+                    Image("cancelbutton")
+                    Text("취소")
+                      .font(.system(size: 25))
+                      .bold()
+                      .foregroundColor(Color(hex: "ceeff2"))
+                  }
                 }
               }
             }//HStack
@@ -81,8 +138,9 @@ struct RecordView: View {
           Spacer()
         }//VStack
         .onAppear{
-          timerVM.setTimer(num: 4)
           showTimer = true
+          timerVM.setTimer(num: 4)
+          
         }
         
       }
