@@ -91,7 +91,7 @@ struct ContentView: View {
               TabBarIcon(viewRouter: viewRouter, assignedPage: .user, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "person.crop.circle", tabName: "Account")
             }
             .frame(width: geometry.size.width, height: geometry.size.height/8)
-            .background(Color.blue.shadow(radius: 2))
+            .background(Color.black.shadow(radius: 2))
           }//ZStack
         }else{
           
@@ -107,6 +107,7 @@ struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView(viewRouter: ViewRouter())
       .preferredColorScheme(.light)
+      .previewInterfaceOrientation(.portrait)
   }
 }
 
