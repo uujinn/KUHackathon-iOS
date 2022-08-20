@@ -11,6 +11,14 @@
 		0AF4FC2328AFFF66000C0E43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4FC2228AFFF66000C0E43 /* ContentView.swift */; };
 		0AF4FC2528AFFF68000C0E43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF4FC2428AFFF68000C0E43 /* Assets.xcassets */; };
 		0AF4FC2828AFFF68000C0E43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF4FC2728AFFF68000C0E43 /* Preview Assets.xcassets */; };
+		0AF4FC6E28B087F6000C0E43 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4FC6D28B087F6000C0E43 /* Recording.swift */; };
+		0AF4FC7028B08808000C0E43 /* UploadFileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4FC6F28B08808000C0E43 /* UploadFileResponse.swift */; };
+		0AF4FC7428B088A6000C0E43 /* VoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4FC7328B088A6000C0E43 /* VoiceViewModel.swift */; };
+		0AF4FC7628B088BB000C0E43 /* AudioUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4FC7528B088BB000C0E43 /* AudioUploadViewModel.swift */; };
+		0AF4FC7828B088F3000C0E43 /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4FC7728B088F3000C0E43 /* UploadManager.swift */; };
+		0AF4FC7B28B08938000C0E43 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4FC7A28B08938000C0E43 /* Date.swift */; };
+		0AF4FC7D28B08944000C0E43 /* convertSecToMinAndHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4FC7C28B08944000C0E43 /* convertSecToMinAndHour.swift */; };
+		B838D05941A0D020E400A6C3 /* Pods_KUHackerthon_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B11A0EE6876BDFD52EA645 /* Pods_KUHackerthon_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +27,16 @@
 		0AF4FC2228AFFF66000C0E43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0AF4FC2428AFFF68000C0E43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AF4FC2728AFFF68000C0E43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0AF4FC6D28B087F6000C0E43 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		0AF4FC6F28B08808000C0E43 /* UploadFileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileResponse.swift; sourceTree = "<group>"; };
+		0AF4FC7328B088A6000C0E43 /* VoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceViewModel.swift; sourceTree = "<group>"; };
+		0AF4FC7528B088BB000C0E43 /* AudioUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUploadViewModel.swift; sourceTree = "<group>"; };
+		0AF4FC7728B088F3000C0E43 /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
+		0AF4FC7A28B08938000C0E43 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		0AF4FC7C28B08944000C0E43 /* convertSecToMinAndHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = convertSecToMinAndHour.swift; sourceTree = "<group>"; };
+		6BE150CFA5A8280B2A89407C /* Pods-KUHackerthon-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KUHackerthon-ios.release.xcconfig"; path = "Target Support Files/Pods-KUHackerthon-ios/Pods-KUHackerthon-ios.release.xcconfig"; sourceTree = "<group>"; };
+		87B11A0EE6876BDFD52EA645 /* Pods_KUHackerthon_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KUHackerthon_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E515B3B46AF022624942F767 /* Pods-KUHackerthon-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KUHackerthon-ios.debug.xcconfig"; path = "Target Support Files/Pods-KUHackerthon-ios/Pods-KUHackerthon-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B838D05941A0D020E400A6C3 /* Pods_KUHackerthon_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +56,8 @@
 			children = (
 				0AF4FC1F28AFFF66000C0E43 /* KUHackerthon-ios */,
 				0AF4FC1E28AFFF66000C0E43 /* Products */,
+				D64EF3D1940CF87FA12BED01 /* Pods */,
+				4F1952984A4F552BDCC5C4B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,7 +73,10 @@
 			isa = PBXGroup;
 			children = (
 				0AF4FC2028AFFF66000C0E43 /* KUHackerthon_iosApp.swift */,
-				0AF4FC2228AFFF66000C0E43 /* ContentView.swift */,
+				0AF4FC7928B08928000C0E43 /* Extensions */,
+				0AF4FC6C28B087EC000C0E43 /* Models */,
+				0AF4FC7128B08865000C0E43 /* Views */,
+				0AF4FC7228B0888C000C0E43 /* ViewModels */,
 				0AF4FC2428AFFF68000C0E43 /* Assets.xcassets */,
 				0AF4FC2628AFFF68000C0E43 /* Preview Content */,
 			);
@@ -67,6 +91,60 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0AF4FC6C28B087EC000C0E43 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AF4FC6D28B087F6000C0E43 /* Recording.swift */,
+				0AF4FC6F28B08808000C0E43 /* UploadFileResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0AF4FC7128B08865000C0E43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AF4FC2228AFFF66000C0E43 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0AF4FC7228B0888C000C0E43 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0AF4FC7328B088A6000C0E43 /* VoiceViewModel.swift */,
+				0AF4FC7528B088BB000C0E43 /* AudioUploadViewModel.swift */,
+				0AF4FC7728B088F3000C0E43 /* UploadManager.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0AF4FC7928B08928000C0E43 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0AF4FC7A28B08938000C0E43 /* Date.swift */,
+				0AF4FC7C28B08944000C0E43 /* convertSecToMinAndHour.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4F1952984A4F552BDCC5C4B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87B11A0EE6876BDFD52EA645 /* Pods_KUHackerthon_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D64EF3D1940CF87FA12BED01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E515B3B46AF022624942F767 /* Pods-KUHackerthon-ios.debug.xcconfig */,
+				6BE150CFA5A8280B2A89407C /* Pods-KUHackerthon-ios.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AF4FC2B28AFFF68000C0E43 /* Build configuration list for PBXNativeTarget "KUHackerthon-ios" */;
 			buildPhases = (
+				6CA6C9A56BF955A16BF19D07 /* [CP] Check Pods Manifest.lock */,
 				0AF4FC1928AFFF66000C0E43 /* Sources */,
 				0AF4FC1A28AFFF66000C0E43 /* Frameworks */,
 				0AF4FC1B28AFFF66000C0E43 /* Resources */,
+				9654BACB8FDDD97B0FD88546 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,13 +212,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6CA6C9A56BF955A16BF19D07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KUHackerthon-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9654BACB8FDDD97B0FD88546 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KUHackerthon-ios/Pods-KUHackerthon-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KUHackerthon-ios/Pods-KUHackerthon-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KUHackerthon-ios/Pods-KUHackerthon-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0AF4FC1928AFFF66000C0E43 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0AF4FC2328AFFF66000C0E43 /* ContentView.swift in Sources */,
+				0AF4FC7428B088A6000C0E43 /* VoiceViewModel.swift in Sources */,
+				0AF4FC6E28B087F6000C0E43 /* Recording.swift in Sources */,
+				0AF4FC7B28B08938000C0E43 /* Date.swift in Sources */,
 				0AF4FC2128AFFF66000C0E43 /* KUHackerthon_iosApp.swift in Sources */,
+				0AF4FC7828B088F3000C0E43 /* UploadManager.swift in Sources */,
+				0AF4FC7628B088BB000C0E43 /* AudioUploadViewModel.swift in Sources */,
+				0AF4FC7028B08808000C0E43 /* UploadFileResponse.swift in Sources */,
+				0AF4FC7D28B08944000C0E43 /* convertSecToMinAndHour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +390,7 @@
 		};
 		0AF4FC2C28AFFF68000C0E43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E515B3B46AF022624942F767 /* Pods-KUHackerthon-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -290,6 +420,7 @@
 		};
 		0AF4FC2D28AFFF68000C0E43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BE150CFA5A8280B2A89407C /* Pods-KUHackerthon-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
