@@ -42,7 +42,7 @@ struct ContentView: View {
             Color.blue.opacity(0.2)
             Text("Home") // 홈뷰
             if tabbarManager.showRecord{
-              RecordView()
+              RecordView(isShowing: $tabbarManager.showRecord)
                 .frame(width: 331, height: 331)
                 .transition(.move(edge: .top))
                 .animation(.easeIn)
