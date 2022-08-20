@@ -26,7 +26,7 @@ struct RecordView: View {
   @State var showTimer = false
   @State var control: Bool = false
   @State var timerText = ""
-  @State var pressedOK = true
+  @State var pressedOK = false
   @State var isPause = false
   @State var mode = ""
   @State var presentAlert = false

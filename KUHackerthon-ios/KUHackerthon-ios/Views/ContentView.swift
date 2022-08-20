@@ -42,6 +42,7 @@ struct ContentView: View {
             Color.blue.opacity(0.2)
             HomeView() // 홈뷰
             if tabbarManager.showRecord{
+              Color.black.opacity(0.4)
               RecordView(isShowing: $tabbarManager.showRecord)
                 .frame(width: 331, height: 331)
                 .transition(.move(edge: .top))
@@ -96,7 +97,7 @@ struct ContentView: View {
           
         }
       }
-      .edgesIgnoringSafeArea(.bottom)
+      .edgesIgnoringSafeArea([.bottom, .top])
       .ignoresSafeArea()
     }
   }

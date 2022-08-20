@@ -35,7 +35,7 @@ enum UploadManager: URLRequestConvertible {
     switch self {
     case .postFiles:
       headers["Content-Type"] = "multipart/form-data"
-      headers["accept"] = "application/json"
+//      headers["accept"] = "application/json"
     }
     return headers
   }
