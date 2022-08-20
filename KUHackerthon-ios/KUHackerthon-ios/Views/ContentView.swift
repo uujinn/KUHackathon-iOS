@@ -60,12 +60,15 @@ struct ContentView: View {
 //        Spacer()
         if tabbarManager.showTabBar{
           ZStack{
+            VisualEffectView(effect: UIBlurEffect(style: .dark))
+              .frame(width: geometry.size.width, height: geometry.size.height/6)
+              .cornerRadius(16)
             if showPopUp {
               PlusMenu(viewRouter: viewRouter, widthAndHeight: geometry.size.width/7)
                 .offset(y: -geometry.size.height/6)
             }
             HStack {
-              TabBarIcon(viewRouter: viewRouter, assignedPage: .home, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "homekit", tabName: "Home")
+              TabBarIcon(viewRouter: viewRouter, assignedPage: .home, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "house.fill", tabName: "홈")
               Spacer()
                 .frame(width: 50)
               ZStack {
@@ -73,14 +76,14 @@ struct ContentView: View {
                   .foregroundColor(.white)
                   .frame(width: geometry.size.width/7, height: geometry.size.width/7)
                   .shadow(radius: 4)
-                Image(systemName: "plus.circle.fill")
+                Image("create 2")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
                   .frame(width: geometry.size.width/5-6 , height: geometry.size.width/5-6)
                   .foregroundColor(Color.black)
-                  .rotationEffect(Angle(degrees: showPopUp ? 90 : 0))
+                  .shadow(radius: 10)
               }
-              .offset(y: -geometry.size.height/8/2)
+              .offset(y: -geometry.size.height/8/1.5)
               .onTapGesture {
                 withAnimation {
                   showPopUp.toggle()
@@ -88,10 +91,10 @@ struct ContentView: View {
               }
               Spacer()
                 .frame(width: 50)
-              TabBarIcon(viewRouter: viewRouter, assignedPage: .user, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "person.crop.circle", tabName: "Account")
+              TabBarIcon(viewRouter: viewRouter, assignedPage: .user, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "person", tabName: "나의 코드")
             }
-            .frame(width: geometry.size.width, height: geometry.size.height/8)
-            .background(Color.black.shadow(radius: 2))
+            .frame(width: geometry.size.width, height: geometry.size.height/6)
+//            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
           }//ZStack
         }else{
           
@@ -178,7 +181,9 @@ struct TabBarIcon: View {
         .aspectRatio(contentMode: .fit)
         .frame(width: width, height: height)
         .padding(.top, 10)
+        .foregroundColor(Color(hex: "eaeaea"))
       Text(tabName)
+        .foregroundColor(Color(hex: "eaeaea"))
         .font(.footnote)
       Spacer()
     }
@@ -188,4 +193,10 @@ struct TabBarIcon: View {
     }
     .foregroundColor(viewRouter.currentPage == assignedPage ? Color.white : .white)
   }
+}
+
+struct VisualEffectView: UIViewRepresentable {
+    var effect: UIVisualEffect?
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
 }

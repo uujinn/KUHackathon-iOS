@@ -40,6 +40,7 @@
 		0A825EFA28B0FBE6004C281F /* SourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesManager.swift; sourceTree = "<group>"; };
 		0A825EFC28B0FC7B004C281F /* SourcesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesResponse.swift; sourceTree = "<group>"; };
 		0A825EFE28B0FCD7004C281F /* SourcesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewModel.swift; sourceTree = "<group>"; };
+		0A825F1A28B1053F004C281F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0AF4FC1D28AFFF66000C0E43 /* KUHackerthon-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KUHackerthon-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF4FC2028AFFF66000C0E43 /* KUHackerthon_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KUHackerthon_iosApp.swift; sourceTree = "<group>"; };
 		0AF4FC2228AFFF66000C0E43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		0AF4FC1F28AFFF66000C0E43 /* KUHackerthon-ios */ = {
 			isa = PBXGroup;
 			children = (
+				0A825F1A28B1053F004C281F /* Info.plist */,
 				0AF4FC2028AFFF66000C0E43 /* KUHackerthon_iosApp.swift */,
 				0AF4FC8E28B0B641000C0E43 /* SoundWave.json */,
 				0AF4FC8228B096CB000C0E43 /* Configuration */,
@@ -463,6 +465,7 @@
 				DEVELOPMENT_TEAM = B4G53F63TN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KUHackerthon-ios/Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱 사용을 위해 마이크 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -495,6 +498,7 @@
 				DEVELOPMENT_TEAM = B4G53F63TN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KUHackerthon-ios/Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱 사용을 위해 마이크 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

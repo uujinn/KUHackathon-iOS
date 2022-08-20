@@ -10,10 +10,10 @@ import Alamofire
 import Combine
 
 class SourcesViewModel: ObservableObject {
-  @Published var audio_link: String
+  @Published var sources: [Sources]
   
   init(){
-    audio_link = "inital"
+    sources = []
     getSources()
   }
   
@@ -28,8 +28,9 @@ class SourcesViewModel: ObservableObject {
         receiveCompletion: { completion in
         },
         receiveValue: { receivedValue in
-          self.audio_link = receivedValue.link ?? "no"
-          print(self.audio_link)
+          self.sources = receivedValue.sources ?? []
+          print(self.sources)
+          print(self.sources.count)
         })
       .store(in: &cancellables)
   }
