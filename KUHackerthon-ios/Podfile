@@ -7,4 +7,5 @@ target 'KUHackerthon-ios' do
 
   # Pods for KUHackerthon-ios
   pod 'Alamofire'
+  pod 'lottie-ios'
 end

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct KUHackerthon_iosApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  
+  @StateObject var viewRouter = ViewRouter()
+  var body: some Scene {
+    WindowGroup {
+      ContentView(viewRouter: viewRouter)
     }
+  }
 }

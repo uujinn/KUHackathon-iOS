@@ -20,7 +20,7 @@ class AudioUploadViewModel: ObservableObject {
       if let audio = audio { // 오디오
         let fileName = audio.lastPathComponent
         guard let audioFile: Data = try? Data(contentsOf: audio) else { return }
-        multipartFormData.append(audioFile, withName: "file", fileName: fileName, mimeType: "audio/m4a")
+        multipartFormData.append(audioFile, withName: "upload_file", fileName: fileName, mimeType: "audio/m4a")
       }
     }, with: UploadManager.postFiles)
     .publishDecodable(type: UploadFilesAPIResponse.self)
