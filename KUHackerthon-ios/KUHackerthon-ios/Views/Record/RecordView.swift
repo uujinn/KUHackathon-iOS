@@ -21,6 +21,7 @@ class timerViewModel: ObservableObject{
 
 struct RecordView: View {
   @State var vm = VoiceViewModel()
+  @StateObject var audiouploadViewModel = AudioUploadViewModel()
   @ObservedObject var timerVM = timerViewModel()
   @State var showTimer = false
   @State var control: Bool = false
@@ -45,6 +46,7 @@ struct RecordView: View {
         tabbarManager.showTabBar = true
       }
       Circle()
+        .foregroundColor(.white)
         .frame(width: 662, height: 662, alignment: .center)
         .offset(y: -Screen.maxHeight / 2.8)
         .overlay{
@@ -84,8 +86,15 @@ struct RecordView: View {
                     print("isPause: \(isPause)")
                     if isPause {
                       self.isPause = false
+                      vm.startPlaying(url: vm.urlToShare!)
+                      print("startPlaying")
+                      print(vm.audioRecorder.url)
                     }else{
                       self.isPause = true
+                      vm.stopPlaying(url: vm.urlToShare!)
+                      self.isPause = true
+                      self.mode = ""
+                      print("stopPlaying")
                     }
                     
                   }
@@ -104,9 +113,14 @@ struct RecordView: View {
                     if isPause {
                       self.isPause = false
                       self.mode = "loop"
+                      vm.startPlaying(url: vm.urlToShare!)
+                      print("startPlaying")
+                      print(vm.audioRecorder.url)
                     }else{
+                      vm.stopPlaying(url: vm.urlToShare!)
                       self.isPause = true
                       self.mode = ""
+                      print("stopPlaying")
                     }
                     
                   }
@@ -121,6 +135,7 @@ struct RecordView: View {
                     isPause = true
                     count += 1
                     vm.stopRecording()
+                    print("stopRecording")
                   }
                   if count > 1{
                     presentAlert = true
@@ -167,6 +182,11 @@ struct RecordView: View {
           }
           .textFieldAlert(isPresented: $presentAlert, title: "곡 이름 설정", text: $title, placeholder: "Placeholder", action: { text in
             print(text)
+            audiouploadViewModel.uploadfiles(audio: vm.audioRecorder.url, filename: "\(text)")
+            print(vm.audioRecorder.url)
+            self.isShowing = false
+            tabbarManager.showTabBar = true
+            tabbarManager.showRecord = false
           })
           .padding()
           

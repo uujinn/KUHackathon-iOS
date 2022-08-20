@@ -13,7 +13,7 @@ class AudioUploadViewModel: ObservableObject {
   private var subscription = Set<AnyCancellable>()    // disposeBag
   
   // 서버에 파일 업로드 후, Link 받아오기
-  func uploadfiles(audio: URL?) {
+  func uploadfiles(audio: URL?, filename: String?) {
 //    print(#fileID, #function, #line, "")
     
     AF.upload(multipartFormData: { multipartFormData in

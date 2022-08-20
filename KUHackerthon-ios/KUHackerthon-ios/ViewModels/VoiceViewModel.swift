@@ -25,6 +25,7 @@ class VoiceViewModel : NSObject, ObservableObject , AVAudioPlayerDelegate{
   @Published var blinkingCount : Timer?
   @Published var timer : String = "0:00"
   @Published var toggleColor : Bool = false
+  @Published var urlToShare: URL?
   
   
   var playingURL : URL?
@@ -74,6 +75,7 @@ class VoiceViewModel : NSObject, ObservableObject , AVAudioPlayerDelegate{
       audioRecorder.prepareToRecord()
       audioRecorder.record()
       print(audioRecorder.url)
+      urlToShare = audioRecorder.url
       isRecording = true
       
       timerCount = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (value) in
@@ -135,11 +137,11 @@ class VoiceViewModel : NSObject, ObservableObject , AVAudioPlayerDelegate{
       audioPlayer.prepareToPlay()
       audioPlayer.play()
       
-      for i in 0..<recordingsList.count {
-        if recordingsList[i].fileURL == url {
-          recordingsList[i].isPlaying = true
-        }
-      }
+//      for i in 0..<recordingsList.count {
+//        if recordingsList[i].fileURL == url {
+//          recordingsList[i].isPlaying = true
+//        }
+//      }
       
     } catch {
       print("Playing Failed")
@@ -152,11 +154,11 @@ class VoiceViewModel : NSObject, ObservableObject , AVAudioPlayerDelegate{
     
     audioPlayer.stop()
     
-    for i in 0..<recordingsList.count {
-      if recordingsList[i].fileURL == url {
-        recordingsList[i].isPlaying = false
-      }
-    }
+//    for i in 0..<recordingsList.count {
+//      if recordingsList[i].fileURL == url {
+//        recordingsList[i].isPlaying = false
+//      }
+//    }
   }
   
   

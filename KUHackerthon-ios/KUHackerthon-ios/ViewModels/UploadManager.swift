@@ -11,7 +11,7 @@ import Combine
 
 enum UploadManager: URLRequestConvertible {
   
-  case postFiles
+  case postFiles(filename: String?)
 
   var baseURL: URL {
     switch self {
@@ -35,6 +35,7 @@ enum UploadManager: URLRequestConvertible {
     switch self {
     case .postFiles:
       headers["Content-Type"] = "multipart/form-data"
+      headers["accept"] = "application/json"
     }
     return headers
   }
@@ -44,9 +45,10 @@ enum UploadManager: URLRequestConvertible {
     
     switch self {
     case .postFiles:
-      break
+      params["filename"] = "date"
+      return params
     }
-    return params
+
   }
   
   func asURLRequest() throws -> URLRequest {
