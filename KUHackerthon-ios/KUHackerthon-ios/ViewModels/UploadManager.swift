@@ -11,7 +11,7 @@ import Combine
 
 enum UploadManager: URLRequestConvertible {
   
-  case postFiles(filename: String?)
+  case postFiles
 
   var baseURL: URL {
     switch self {
@@ -45,9 +45,9 @@ enum UploadManager: URLRequestConvertible {
     
     switch self {
     case .postFiles:
-      params["filename"] = "date"
-      return params
+      break
     }
+    return params
 
   }
   

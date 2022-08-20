@@ -26,7 +26,7 @@ struct RecordView: View {
   @State var showTimer = false
   @State var control: Bool = false
   @State var timerText = ""
-  @State var pressedOK = false
+  @State var pressedOK = true
   @State var isPause = false
   @State var mode = ""
   @State var presentAlert = false
@@ -50,7 +50,7 @@ struct RecordView: View {
         .frame(width: 662, height: 662, alignment: .center)
         .offset(y: -Screen.maxHeight / 2.8)
         .overlay{
-          VStack{
+          VStack(spacing: 0){
             if showTimer{
               Text("\(timerText)")
                 .foregroundColor(Color(hex: "ceeff2"))
@@ -78,6 +78,7 @@ struct RecordView: View {
                   .font(.system(size: 25))
                   .bold()
                   .foregroundColor(Color(hex: "ceeff2"))
+                  .offset(y: -5)
                 Image(isPause ? "5" : "4")
                   .resizable()
                   .frame(width: 42, height: 49, alignment: .center)
@@ -98,6 +99,7 @@ struct RecordView: View {
                     }
                     
                   }
+                  .offset(y: -5)
               }
               // Lottie View
               ZStack{
@@ -216,8 +218,12 @@ struct TextFieldAlert: ViewModifier {
         .disabled(isPresented)
       if isPresented {
         VStack {
+          Spacer()
+            .frame(height: 10)
           Text(title).font(.headline).padding()
+            .foregroundColor(.black)
           Text("곡의 이름을 설정해 주세요.")
+            .foregroundColor(.black)
           TextField(placeholder, text: $text).textFieldStyle(.roundedBorder).padding()
           Divider()
           HStack{
@@ -233,7 +239,7 @@ struct TextFieldAlert: ViewModifier {
                 Text("Cancel")
                   .padding()
                 Spacer()
-                  .frame(height: 15)
+                  .frame(height: 25)
               }
 
             }
@@ -252,7 +258,7 @@ struct TextFieldAlert: ViewModifier {
                 Text("Action")
                   .bold()
                 Spacer()
-                  .frame(height: 15)
+                  .frame(height: 25)
               }
             }
             Spacer()

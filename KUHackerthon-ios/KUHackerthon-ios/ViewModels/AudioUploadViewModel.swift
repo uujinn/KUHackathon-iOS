@@ -18,9 +18,10 @@ class AudioUploadViewModel: ObservableObject {
     
     AF.upload(multipartFormData: { multipartFormData in
       if let audio = audio { // 오디오
-        let fileName = audio.lastPathComponent
+        multipartFormData.append("\(filename ?? "")".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"filename")
+        let name = audio.lastPathComponent
         guard let audioFile: Data = try? Data(contentsOf: audio) else { return }
-        multipartFormData.append(audioFile, withName: "upload_file", fileName: fileName, mimeType: "audio/m4a")
+        multipartFormData.append(audioFile, withName: "upload_file", fileName: name, mimeType: "audio/m4a")
       }
     }, with: UploadManager.postFiles)
     .publishDecodable(type: UploadFilesAPIResponse.self)

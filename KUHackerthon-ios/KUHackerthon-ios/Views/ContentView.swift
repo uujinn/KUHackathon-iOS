@@ -40,17 +40,21 @@ struct ContentView: View {
         case .home:
           ZStack{
             Color.blue.opacity(0.2)
-            Text("Home") // 홈뷰
+            HomeView() // 홈뷰
             if tabbarManager.showRecord{
               RecordView(isShowing: $tabbarManager.showRecord)
                 .frame(width: 331, height: 331)
                 .transition(.move(edge: .top))
-                .animation(.easeIn)
+                .animation(.easeOut(duration: 0.1))
+                
             }
           }
           
         case .user:
-          Text("User")
+          ZStack{
+            AccountView()
+            Spacer()
+          }
         }
 //        Spacer()
         if tabbarManager.showTabBar{
@@ -71,7 +75,7 @@ struct ContentView: View {
                 Image(systemName: "plus.circle.fill")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
-                  .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
+                  .frame(width: geometry.size.width/5-6 , height: geometry.size.width/5-6)
                   .foregroundColor(Color.black)
                   .rotationEffect(Angle(degrees: showPopUp ? 90 : 0))
               }
@@ -93,7 +97,7 @@ struct ContentView: View {
         }
       }
       .edgesIgnoringSafeArea(.bottom)
-      
+      .ignoresSafeArea()
     }
   }
 }
