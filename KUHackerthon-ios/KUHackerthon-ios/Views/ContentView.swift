@@ -10,6 +10,7 @@ import SwiftUI
 class TabBarManager: ObservableObject {
   @Published var showTabBar: Bool = true
   @Published var showRecord = false
+  @Published var showEdit = false
   
   static let shared = TabBarManager()
 }
@@ -29,12 +30,11 @@ enum Page {
 struct ContentView: View {
   @StateObject var viewRouter: ViewRouter
   @ObservedObject var tabbarManager = TabBarManager.shared
-  
+  @State private var orientation = UIDeviceOrientation.unknown
   @State var showPopUp = false
   
   var body: some View {
     GeometryReader { geometry in
-      
       ZStack() {
         Spacer()
         switch viewRouter.currentPage {
@@ -56,6 +56,9 @@ struct ContentView: View {
                 .transition(.move(edge: .top))
                 .animation(.easeOut(duration: 0.1))
                 
+            }else if tabbarManager.showEdit{
+              Color.black.opacity(0.4)
+              EditView()
             }
           }
           
@@ -76,6 +79,9 @@ struct ContentView: View {
                 .transition(.move(edge: .top))
                 .animation(.easeOut(duration: 0.1))
                 
+            }else if tabbarManager.showEdit{
+              Color.black.opacity(0.4)
+              EditView()
             }
           }
         }
@@ -91,6 +97,9 @@ struct ContentView: View {
             }
             HStack {
               TabBarIcon(viewRouter: viewRouter, assignedPage: .home, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "house.fill", tabName: "홈")
+                .onTapGesture {
+                  viewRouter.currentPage = .home
+                }
               Spacer()
                 .frame(width: 50)
               ZStack {
@@ -114,6 +123,9 @@ struct ContentView: View {
               Spacer()
                 .frame(width: 50)
               TabBarIcon(viewRouter: viewRouter, assignedPage: .user, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "person", tabName: "나의 코드")
+                .onTapGesture {
+                  viewRouter.currentPage = .user
+                }
             }
             .frame(width: geometry.size.width, height: geometry.size.height/5)
 //            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
@@ -180,6 +192,10 @@ struct PlusMenu: View {
           .aspectRatio(contentMode: .fill)
           .frame(width: widthAndHeight + 10, height: widthAndHeight + 10)
           .foregroundColor(.white)
+      }
+      .onTapGesture {
+        tabbarManager.showEdit = true
+        tabbarManager.showTabBar = false
       }
       .offset(x: -15, y: 10)
     }

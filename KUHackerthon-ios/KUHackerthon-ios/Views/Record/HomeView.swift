@@ -34,15 +34,18 @@ struct HomeView: View {
           Image("Asset 1")
             .resizable()
             .frame(width: 150, height: 19, alignment: .center)
+            .foregroundColor(Color(hex: "b2b2b2"))
           Spacer()
           Image(systemName: "paperplane")
             .resizable()
             .frame(width: 19, height: 19, alignment: .center)
+            .foregroundColor(Color(hex: "b2b2b2"))
           Spacer()
             .frame(width: 30)
           Image(systemName: "bell")
             .resizable()
             .frame(width: 19, height: 19, alignment: .center)
+            .foregroundColor(Color(hex: "b2b2b2"))
             .overlay{
               Circle()
                 .frame(width: 8, height: 8, alignment: .center)
@@ -54,6 +57,7 @@ struct HomeView: View {
           Image(systemName: "gearshape")
             .resizable()
             .frame(width: 19, height: 19, alignment: .center)
+            .foregroundColor(Color(hex: "b2b2b2"))
         }//HStack NavigationView
         .padding(18)
         .background(Color(hex: "262626"))
@@ -76,13 +80,19 @@ struct HomeView: View {
                 ForEach(1..<5, id: \.self){ num in
                   HStack{
                     Text("\(num)")
+                      .foregroundColor(Color(hex: "acacac"))
+                      .font(.system(size: 15))
+                    Spacer()
+                      .frame(width: 9)
                     Image("create 2")
                       .resizable()
                       .frame(width: 55, height: 55, alignment: .center)
+                      .shadow(radius: 12)
                     Spacer()
                       .frame(width: 20)
                     VStack(alignment: .leading){
                       Text("Title")
+                        .foregroundColor(Color(hex: "eaeaea"))
                       Spacer()
                         .frame(height: 1)
                       HStack{
@@ -92,7 +102,7 @@ struct HomeView: View {
                           .frame(width: 15)
                         Image(systemName: "shuffle")
                         Text("12,429")
-                      }
+                      }.foregroundColor(Color(hex: "acacac"))
                     }
                   }//HStack
                 }
@@ -103,6 +113,7 @@ struct HomeView: View {
                 ForEach(5..<9, id: \.self){ num in
                   HStack{
                     Text("\(num)")
+                      .foregroundColor(Color(hex: "acacac"))
                     Image("create 2")
                       .resizable()
                       .frame(width: 55, height: 55, alignment: .center)
@@ -117,8 +128,8 @@ struct HomeView: View {
                         Text("42,563")
                         Image(systemName: "shuffle")
                         Text("12,429")
-                      }
-                    }
+                      }.foregroundColor(Color(hex: "acacac"))
+                    }.foregroundColor(Color(hex: "acacac"))
                   }//HStack
                 }
               }//VStack
@@ -139,6 +150,7 @@ struct HomeView: View {
             Spacer()
             Text("더보기")
               .font(.system(size: 15))
+              .foregroundColor(Color(hex: "acacac"))
             Spacer()
               .frame(width: 18)
           }
@@ -169,6 +181,7 @@ struct HomeView: View {
             Spacer()
             Text("더보기")
               .font(.system(size: 15))
+              .foregroundColor(Color(hex: "acacac"))
             Spacer()
               .frame(width: 18)
           }
