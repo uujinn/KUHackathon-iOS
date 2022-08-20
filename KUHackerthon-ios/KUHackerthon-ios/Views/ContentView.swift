@@ -34,12 +34,13 @@ struct ContentView: View {
   
   var body: some View {
     GeometryReader { geometry in
-      VStack(alignment: .center, spacing: 0) {
+      
+      ZStack() {
         Spacer()
         switch viewRouter.currentPage {
         case .home:
           ZStack{
-            Color.blue.opacity(0.2)
+            Color(hex: "262626")
             HomeView() // 홈뷰
             if tabbarManager.showRecord{
               Color.black.opacity(0.4)
@@ -60,8 +61,8 @@ struct ContentView: View {
 //        Spacer()
         if tabbarManager.showTabBar{
           ZStack{
-            VisualEffectView(effect: UIBlurEffect(style: .dark))
-              .frame(width: geometry.size.width, height: geometry.size.height/6)
+            VisualEffectView(effect: UIBlurEffect(style: .systemMaterialDark))
+              .frame(width: geometry.size.width, height: geometry.size.height/5)
               .cornerRadius(16)
             if showPopUp {
               PlusMenu(viewRouter: viewRouter, widthAndHeight: geometry.size.width/7)
@@ -93,9 +94,10 @@ struct ContentView: View {
                 .frame(width: 50)
               TabBarIcon(viewRouter: viewRouter, assignedPage: .user, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "person", tabName: "나의 코드")
             }
-            .frame(width: geometry.size.width, height: geometry.size.height/6)
+            .frame(width: geometry.size.width, height: geometry.size.height/5)
 //            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
           }//ZStack
+          .offset(y: geometry.size.height / 2)
         }else{
           
         }
