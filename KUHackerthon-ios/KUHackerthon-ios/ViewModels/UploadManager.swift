@@ -17,7 +17,7 @@ enum UploadManager: URLRequestConvertible {
     switch self {
     case .postFiles:
 //      return URL(string: "\(APIConstants.url)/files")!
-      return URL(string: "http://34.238.235.31/source")!
+      return URL(string: "http://54.215.106.122/source")!
     }
   }
   

@@ -16,7 +16,7 @@ enum SourcesManager: URLRequestConvertible {
   var baseURL: URL {
     switch self {
     case .getSources:
-      return URL(string: "http://34.238.235.31/sources")!
+      return URL(string: "http://54.215.106.122/sources")!
     }
   }
   
