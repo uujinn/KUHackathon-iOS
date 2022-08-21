@@ -11,6 +11,7 @@ import AVKit
 
 struct HomeView: View {
   var hashtags = ["독창적인", "감미로운", "여유로운", "신이나는", "흥미로운", "엉덩이들썩", "클래식", "잔잔한"]
+  var titles = ["<Sing with Me !> Ca···", "Ouch 😂", "REMIX MASTER_Sta···", "2022 Meme Remix", "Merry Christmas", "Hello", "Let's go summer", "WOW","me"]
   
   @StateObject var sourceVM = SourcesViewModel()
   @StateObject var voiceVM = VoiceViewModel()
@@ -62,7 +63,7 @@ struct HomeView: View {
         .padding(18)
         .background(Color(hex: "262626"))
       }
-      ScrollView{
+      ScrollView(showsIndicators: false){
         VStack{
           HStack{
             Text("🔥 Weekly Hot")
@@ -84,24 +85,24 @@ struct HomeView: View {
                       .font(.system(size: 15))
                     Spacer()
                       .frame(width: 9)
-                    Image("create 2")
+                    Image("profile \(num)")
                       .resizable()
                       .frame(width: 55, height: 55, alignment: .center)
                       .shadow(radius: 12)
                     Spacer()
                       .frame(width: 20)
                     VStack(alignment: .leading){
-                      Text("Title")
+                      Text(titles[num])
                         .foregroundColor(Color(hex: "eaeaea"))
                       Spacer()
                         .frame(height: 1)
                       HStack{
                         Image(systemName: "heart")
-                        Text("42,563")
+                        Text("\(42563 / num)")
                         Spacer()
                           .frame(width: 15)
                         Image(systemName: "shuffle")
-                        Text("12,429")
+                        Text("\(12429 / num)")
                       }.foregroundColor(Color(hex: "acacac"))
                     }
                   }//HStack
@@ -114,20 +115,20 @@ struct HomeView: View {
                   HStack{
                     Text("\(num)")
                       .foregroundColor(Color(hex: "acacac"))
-                    Image("create 2")
+                    Image("profile \(num)")
                       .resizable()
                       .frame(width: 55, height: 55, alignment: .center)
                     Spacer()
                       .frame(width: 20)
                     VStack(alignment: .leading){
-                      Text("Title")
+                      Text(titles[num])
                       Spacer()
                         .frame(height: 1)
                       HStack{
                         Image(systemName: "heart")
-                        Text("42,563")
+                        Text("\(42563 / num)")
                         Image(systemName: "shuffle")
-                        Text("12,429")
+                        Text("\(12429 / num)")
                       }.foregroundColor(Color(hex: "acacac"))
                     }.foregroundColor(Color(hex: "acacac"))
                   }//HStack
@@ -188,8 +189,10 @@ struct HomeView: View {
           ScrollView(.vertical, showsIndicators: false){
             ForEach(0..<8, id: \.self){ num in
               HStack(spacing: 5){
+                
                 Rectangle()
                   .frame(width: (Screen.maxWidth - 50)/2, height: (Screen.maxWidth - 50)/2, alignment: .center)
+                  .zIndex(num == 1 ? 1 : 0)
                   .cornerRadius(15)
                   .overlay{
                     Image("a")

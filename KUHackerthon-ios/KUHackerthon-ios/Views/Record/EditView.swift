@@ -45,7 +45,7 @@ struct EditView: View {
   @State private var position3 = CGSize.zero
   @State private var position4 = CGSize.zero
   @ObservedObject var tabbarManager = TabBarManager.shared
-  
+  @State var repeatMode = false
   
   var body: some View {
     ZStack{
@@ -143,24 +143,46 @@ struct EditView: View {
                     .frame(width: 180 , height: 70)
                     .cornerRadius(10)
                     .foregroundColor(Color(hex: "ceeff2"))
-                  ZStack{
-                    Rectangle()
-                      .frame(width: 140 , height: 70)
-                      .cornerRadius(10)
-                      .foregroundColor(Color(hex: "e8d6ff"))
-                      .background(.thickMaterial)
-                      .onLongPressGesture {
-                        print("bi")
+                  //                  ZStack{
+                  Rectangle()
+                    .frame(width: 140 , height: 70)
+                    .cornerRadius(10)
+                    .foregroundColor(Color(hex: "e8d6ff"))
+                    .overlay( // cornerRadius값이 있는 border 주기 위해
+                      
+                      RoundedRectangle(cornerRadius: 10)
+                        .stroke(repeatMode ? Color.white : Color.black.opacity(0), lineWidth: 4)
+                    )
+                    .overlay(
+                      Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 52, height: 52, alignment: .center)
+                        .offset(x: 110, y: 0)
+                        .opacity(repeatMode ? 1 : 0)
+                        .onTapGesture {
+                          
+                        }
+                    )
+                    .contextMenu {
+                      Button(action: {
+                        self.repeatMode = true
+                      }) {
+                        
+                        Image(systemName: "repeat")
+                        Text("반복")
                       }
-                    Rectangle()
-                      .frame(width: 140 , height: 70)
-                      .cornerRadius(10)
-                      .foregroundColor(Color(hex: "e8d6ff"))
-                      .background(.thickMaterial)
-                      .onLongPressGesture {
-                        print("bi")
+                      
+                      Button(action: {}) {
+                        Image(systemName: "trash")
+                        Text("삭제")
                       }
-                  }
+                      
+                      Button(action: {}) {
+                        Image(systemName: "scissors")
+                        Text("자르기")
+                      }
+                    }
+                  //                  }
                 }.offset(x: -228 ,y: 0)
                 
               }
