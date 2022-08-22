@@ -1,1 +1,1 @@
-# KUhackerthon
+# KUHackathon
