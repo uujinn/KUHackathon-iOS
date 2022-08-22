@@ -98,7 +98,7 @@ struct HomeView: View {
                         .frame(height: 1)
                       HStack{
                         Image(systemName: "heart")
-                        Text("\(42563 / num)")
+                        Text("42,653")
                         Spacer()
                           .frame(width: 15)
                         Image(systemName: "shuffle")
@@ -277,15 +277,6 @@ struct HomeView_Previews: PreviewProvider {
   }
 }
 
-class SoundManager : ObservableObject {
-  var audioPlayer: AVPlayer?
-  
-  func playSound(sound: String){
-    if let url = URL(string: sound) {
-      self.audioPlayer = AVPlayer(url: url)
-    }
-  }
-}
 
 struct TapAndLongPressModifier: ViewModifier {
   @State private var isLongPressing = false

@@ -35,4 +35,23 @@ class SourcesViewModel: ObservableObject {
       .store(in: &cancellables)
   }
   
+  func postEdit(ids: [Int], filename: String) {
+    AF.request(SourcesManager.postSources(ids: ids, filename: filename))
+      .publishDecodable(type: UploadFilesAPIResponse.self)
+      .value()
+      .receive(on: DispatchQueue.main)
+      .sink(
+        receiveCompletion: {completion in
+          guard case .failure(let error) = completion else { return }
+          NSLog("Error : " + error.localizedDescription)
+          print("MESSAGE POST 성공")
+          
+        },
+        receiveValue: {receivedValue in
+          NSLog("받은 값 : \(receivedValue)")
+        }
+      )
+      .store(in: &cancellables)
+  }
+  
 }

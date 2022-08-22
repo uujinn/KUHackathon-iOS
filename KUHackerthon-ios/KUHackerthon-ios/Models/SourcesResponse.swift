@@ -17,5 +17,5 @@ struct Sources: Hashable, Decodable{
   let created_at: String?
   let img_link: String?
   let likes: Int
-  let remix: Int
+  let id: Int
 }
