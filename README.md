@@ -19,7 +19,7 @@
 
 |저장된 피스 & 믹스|편집 화면|
 |:--:|:--:|
-|<img src="https://user-images.githubusercontent.com/70887135/186212833-ad52ff6a-4d76-4608-af9c-a37df2fa3dd1.png" width="550" height="250"/>|<img src="https://user-images.githubusercontent.com/70887135/186212965-6d7e771d-202c-46f1-a09b-e0d3433b4079.png"  width="550" height="250"/>|
+|<img src="https://user-images.githubusercontent.com/70887135/186212833-ad52ff6a-4d76-4608-af9c-a37df2fa3dd1.png" width="550" height="200"/>|<img src="https://user-images.githubusercontent.com/70887135/186212965-6d7e771d-202c-46f1-a09b-e0d3433b4079.png"  width="550" height="200"/>|
 |편집할 피스와 믹스 선택|피스 편집|
 
 |피스 선택 후 믹싱|
