@@ -1,4 +1,4 @@
-# KUHackathon
+# KUHackathon - iOS
 ### : 2022 고려대학교 여름 해커톤 - 함께하는 항해 3등 수상
 
 - `SwiftUI` + `Combine`
