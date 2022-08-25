@@ -2,9 +2,9 @@
 ### : 2022 고려대학교 여름 해커톤 - 함께하는 항해 3등 수상
 
 - `SwiftUI` + `Combine`
-- AVAudioRecorder를 이용한 녹음 구현 
-- FileManager 접근을 이용한 녹음 파일 관리
-- Alamofire를 이용한 네트워크 통신
+- `AVAudioRecorder`를 이용한 녹음 구현 
+- `FileManager` 접근을 이용한 녹음 파일 관리
+- `Alamofire`를 이용한 네트워크 통신
 
 
 |Main Page|Tab|
